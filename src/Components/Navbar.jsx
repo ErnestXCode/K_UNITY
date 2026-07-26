@@ -41,7 +41,7 @@ function Navbar() {
                 K-Unity SACCO
               </h1>
 
-              <p className="text-xs text-slate-500">Growing Together</p>
+              <p className="text-xs text-slate-500">Together We Grow</p>
             </div>
           </div>
 

@@ -3,7 +3,7 @@ import Accordion from "../Components/Accordion";
 import products from "../Data/products";
 
 function Products() {
-  const [openId, setOpenId] = useState(1);
+  const [openId, setOpenId] = useState(0);
 
   const handleToggle = (id) => {
     setOpenId((current) => (current === id ? null : id));
