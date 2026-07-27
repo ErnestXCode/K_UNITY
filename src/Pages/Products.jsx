@@ -99,24 +99,25 @@ function Products() {
           </p>
 
           {/* Filters */}
-          <div className="mt-8 flex justify-center gap-3 overflow-x-auto pb-2">
-            {filters.map((item) => (
-              <button
-                key={item}
-                onClick={() => {
-                  setFilter(item);
-                  setOpenId(null);
-                }}
-                className={`whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-medium transition ${
-                  filter === item
-                    ? "bg-blue-600 text-white shadow-md dark:bg-blue-500"
-                    : "border border-slate-200 bg-white text-slate-700 hover:bg-blue-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
-                }`}
-              >
-                {item}
-              </button>
-            ))}
-          </div>
+         {/* Filters */}
+<div className="mt-8 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:justify-center">
+  {filters.map((item) => (
+    <button
+      key={item}
+      onClick={() => {
+        setFilter(item);
+        setOpenId(null);
+      }}
+      className={`flex items-center justify-center rounded-xl px-4 py-3 text-center text-sm font-medium transition sm:w-auto sm:rounded-full sm:px-5 sm:py-2.5 ${
+        filter === item
+          ? "bg-blue-600 text-white shadow-md dark:bg-blue-500"
+          : "border border-slate-200 bg-white text-slate-700 hover:bg-blue-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
+      }`}
+    >
+      {item}
+    </button>
+  ))}
+</div>
         </div>
 
         <div className="space-y-4 sm:space-y-5">
