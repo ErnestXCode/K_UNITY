@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   FaChevronDown,
   FaChevronUp,
@@ -12,6 +12,16 @@ import {
 
 function Accordion({ product, isOpen, onToggle }) {
   const [showDetails, setShowDetails] = useState(false);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    if (isOpen && cardRef.current) {
+      cardRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [isOpen]);
 
   const getIcon = (label) => {
     switch (label) {
@@ -51,7 +61,10 @@ function Accordion({ product, isOpen, onToggle }) {
   };
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg dark:border-slate-700 dark:bg-slate-800 dark:shadow-none">
+    <div
+      ref={cardRef}
+      className="scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg dark:border-slate-700 dark:bg-slate-800 dark:shadow-none"
+    >
       {/* Header */}
       <button
         onClick={onToggle}
